@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail - STMNPBDG.US</title>
+
+    <!-- CDN untuk Styling & Icon -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      .bg-custom-green {
+        background-color: #263529;
+      }
+      .text-custom-gold {
+        color: #b6a176;
+      }
+      .border-custom-gold {
+        border-color: #b6a176;
+      }
+      .hover-line-menu {
+        position: relative;
+        display: inline-block;
+        padding: 0.5rem 0;
+      }
+
+      /* Menghilangkan panah di input number */
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-white m-0 p-0 min-h-screen flex flex-col font-sans text-gray-900"
+  >
+    <!-- ===================== SIDEBAR MENU ===================== -->
+    <div
+      id="sidebar"
+      class="fixed inset-y-0 left-0 w-64 bg-white z-[60] transform -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl"
+    >
+      <div class="p-6">
+        <button
+          onclick="toggleMenu()"
+          class="bg-custom-green text-custom-gold w-10 h-10 rounded flex items-center justify-center mb-12 hover:opacity-90 transition shadow-sm"
+        >
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+        <ul
+          class="flex flex-col gap-6 text-black font-extrabold tracking-wide text-sm md:text-base"
+        >
+          <li>
+            <a href="shop.html" class="hover-line-menu group"
+              >SHOP<span
+                class="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+              ></span
+            ></a>
+          </li>
+          <li>
+            <a href="collection.html" class="hover-line-menu group"
+              >COLLECTION<span
+                class="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+              ></span
+            ></a>
+          </li>
+          <li>
+            <a href="lookbook.html" class="hover-line-menu group"
+              >LOOKBOOK<span
+                class="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+              ></span
+            ></a>
+          </li>
+          <li>
+            <a href="about_us.html" class="hover-line-menu group"
+              >ABOUT US<span
+                class="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+              ></span
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      id="overlay"
+      onclick="toggleMenu()"
+      class="fixed inset-0 bg-black/50 z-[55] hidden transition-opacity duration-300 opacity-0 backdrop-blur-sm"
+    ></div>
+
+    <!-- ===================== HEADER ===================== -->
+    <nav
+      class="fixed top-0 left-0 w-full z-50 bg-custom-green text-white px-4 py-4 md:px-8 flex justify-between items-center shadow-md h-16 md:h-20"
+    >
+      <button
+        onclick="toggleMenu()"
+        class="text-xl md:text-2xl opacity-80 hover:opacity-100 transition focus:outline-none"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Logo Link ke Home (Keluar folder menu) -->
+      <a
+        href="../index.html"
+        class="text-sm md:text-lg font-bold tracking-widest uppercase flex items-center gap-2 hover:opacity-80 transition cursor-pointer"
+        ><i class="fas fa-leaf text-xs opacity-80"></i> STMNPBDG.US</a
+      >
+      <div class="flex gap-4 md:gap-6 items-center">
+        <button
+          class="text-lg md:text-xl opacity-80 hover:opacity-100 transition"
+        >
+          <i class="fas fa-shopping-cart"></i>
+        </button>
+        <a
+          href="../profile/login.html"
+          class="text-lg md:text-xl opacity-80 hover:opacity-100 transition text-custom-gold"
+          ><i class="fas fa-user-circle"></i
+        ></a>
+      </div>
+    </nav>
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <main
+      class="w-full pt-28 pb-20 px-6 md:px-12 flex-grow flex flex-col items-center"
+    >
+      <!-- Link Kembali -->
+      <div class="max-w-[1200px] w-full mb-6">
+        <a
+          href="shop.html"
+          class="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-black transition"
+        >
+          <i class="fas fa-arrow-left"></i> Back to Shop
+        </a>
+      </div>
+
+      <div class="max-w-[1200px] w-full">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start"
+        >
+          <!-- KOLOM KIRI: FOTO PRODUK -->
+          <div class="flex flex-col gap-4">
+            <!-- Main Image (Diisi oleh JS) -->
+            <div
+              class="w-full aspect-square bg-gray-100 rounded-2xl overflow-hidden shadow-sm relative"
+            >
+              <img
+                id="main-image"
+                src=""
+                alt="Product"
+                class="w-full h-full object-cover transition duration-300"
+              />
+            </div>
+            <!-- Thumbnails Container (Diisi oleh JS) -->
+            <div id="thumbnail-container" class="grid grid-cols-4 gap-4"></div>
+          </div>
+
+          <!-- KOLOM KANAN: DETAIL INFO -->
+          <div class="flex flex-col gap-6">
+            <div>
+              <!-- Data ini akan diganti oleh JS -->
+              <span
+                id="p-category"
+                class="bg-[#B6A176] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide"
+                >Category</span
+              >
+              <h1
+                id="p-name"
+                class="text-3xl md:text-4xl font-extrabold mt-3 text-black"
+              >
+                Loading Product...
+              </h1>
+              <p id="p-price" class="text-xl font-bold mt-2 text-gray-700">-</p>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-lg mb-2">Deskripsi</h3>
+              <p
+                id="p-desc"
+                class="text-sm text-gray-600 leading-relaxed text-justify"
+              >
+                Sedang memuat data produk...
+              </p>
+            </div>
+
+            <!-- Pilihan Ukuran -->
+            <div>
+              <h3 class="font-bold text-sm mb-2">Pilih Ukuran</h3>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  class="border border-gray-300 text-xs px-4 py-2 rounded hover:border-black hover:bg-gray-100 transition"
+                >
+                  S
+                </button>
+                <button
+                  class="border border-gray-300 text-xs px-4 py-2 rounded hover:border-black hover:bg-gray-100 transition"
+                >
+                  M
+                </button>
+                <button
+                  class="border border-gray-300 text-xs px-4 py-2 rounded hover:border-black hover:bg-gray-100 transition"
+                >
+                  L
+                </button>
+                <button
+                  class="border border-gray-300 text-xs px-4 py-2 rounded hover:border-black hover:bg-gray-100 transition"
+                >
+                  XL
+                </button>
+              </div>
+            </div>
+
+            <!-- Jumlah -->
+            <div>
+              <h3 class="font-bold text-sm mb-2">Jumlah</h3>
+              <div class="flex items-center gap-3">
+                <button
+                  onclick="updateQty(-1)"
+                  class="w-8 h-8 flex items-center justify-center bg-[#B6A176] text-white rounded hover:opacity-80 transition"
+                >
+                  -
+                </button>
+                <input
+                  id="qty"
+                  type="number"
+                  value="1"
+                  class="w-12 text-center border-none outline-none font-bold text-lg"
+                  readonly
+                />
+                <button
+                  onclick="updateQty(1)"
+                  class="w-8 h-8 flex items-center justify-center bg-[#B6A176] text-white rounded hover:opacity-80 transition"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <!-- Tombol Beli -->
+            <div class="mt-4">
+              <button
+                class="w-full bg-[#263529] text-white font-bold py-4 rounded-lg hover:opacity-90 transition shadow-lg flex items-center justify-center gap-2 text-lg"
+              >
+                <i class="fas fa-shopping-bag"></i> Add To Bag
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="bg-custom-green text-custom-gold py-6 md:py-8 mt-auto">
+      <div class="max-w-[1600px] mx-auto px-6 md:px-12">
+        <div class="text-center text-xs text-custom-gold italic">
+          &copy; 2025 | stmnpbdg.us x dekavein.studios — All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===================== SCRIPT & DATA ===================== -->
+    <script>
+      // ---------------------------------------------------------
+      // 1. DATA PRODUK (SILAKAN ISI BAGIAN INI)
+      // ---------------------------------------------------------
+      const productsDB = {
+        // PRODUK 1 (ID: hoodie_black)
+        hoodie_black: {
+          name: "Signature Hoodie - Black",
+          category: "Collection Q1",
+          price: "Rp 350.000",
+          desc: "Hoodie hitam premium dengan bahan Cotton Fleece 330gsm yang tebal namun adem. Dilengkapi dengan sablon Plastisol High Density. Potongan Oversized fit yang modern cocok untuk gaya streetwear sehari-hari.",
+          mainImage:
+            "https://placehold.co/800x800/111111/ffffff?text=Hoodie+Black",
+          thumbnails: [
+            "https://placehold.co/800x800/111111/ffffff?text=Front",
+            "https://placehold.co/800x800/111111/ffffff?text=Back",
+            "https://placehold.co/800x800/111111/ffffff?text=Detail",
+            "https://placehold.co/800x800/111111/ffffff?text=Model",
+          ],
+        },
+
+        // PRODUK 2 (ID: tshirt_white)
+        tshirt_white: {
+          name: "Basic Logo Tee - White",
+          category: "Collection Q1",
+          price: "Rp 150.000",
+          desc: "Kaos putih bersih berbahan Cotton Combed 24s Australia. Sangat lembut di kulit, menyerap keringat, dan tidak menerawang. Desain minimalis dengan logo kecil di dada kiri.",
+          mainImage:
+            "https://placehold.co/800x800/eeeeee/333333?text=T-Shirt+White",
+          thumbnails: [
+            "https://placehold.co/800x800/eeeeee/333333?text=Front",
+            "https://placehold.co/800x800/eeeeee/333333?text=Back",
+            "https://placehold.co/800x800/eeeeee/333333?text=Side",
+            "https://placehold.co/800x800/eeeeee/333333?text=Material",
+          ],
+        },
+
+        // PRODUK 3 (ID: totebag_canvas)
+        totebag_canvas: {
+          name: "Daily Canvas Totebag",
+          category: "Accessories",
+          price: "Rp 85.000",
+          desc: "Totebag berbahan kanvas tebal (Marsoto) yang kuat menampung laptop hingga 14 inch. Dilengkapi resleting dan saku dalam.",
+          mainImage: "https://placehold.co/800x800/d4af37/ffffff?text=Totebag",
+          thumbnails: [
+            "https://placehold.co/800x800/d4af37/ffffff?text=Full",
+            "https://placehold.co/800x800/d4af37/ffffff?text=Inside",
+            "https://placehold.co/800x800/d4af37/ffffff?text=Detail",
+            "https://placehold.co/800x800/d4af37/ffffff?text=Model",
+          ],
+        },
+
+        // DATA DEFAULT (Jika ID tidak ditemukan/salah link)
+        default: {
+          name: "Produk Tidak Ditemukan",
+          category: "-",
+          price: "-",
+          desc: "Maaf, produk yang Anda cari tidak tersedia. Silakan kembali ke halaman Shop.",
+          mainImage: "https://placehold.co/800x800/cccccc/000000?text=No+Data",
+          thumbnails: [],
+        },
+      };
+
+      // ---------------------------------------------------------
+      // 2. LOGIC LOAD HALAMAN
+      // ---------------------------------------------------------
+      window.onload = function () {
+        // Ambil parameter ID dari URL (contoh: ?id=hoodie_black)
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get("id");
+
+        // Cari data di database
+        const product = productsDB[productId] || productsDB["default"];
+
+        // Tampilkan Data ke Layar
+        document.getElementById("p-name").innerText = product.name;
+        document.getElementById("p-category").innerText = product.category;
+        document.getElementById("p-price").innerText = product.price;
+        document.getElementById("p-desc").innerText = product.desc;
+        document.getElementById("main-image").src = product.mainImage;
+
+        // Generate Thumbnails
+        const thumbContainer = document.getElementById("thumbnail-container");
+        thumbContainer.innerHTML = ""; // Reset container
+
+        if (product.thumbnails.length > 0) {
+          product.thumbnails.forEach((imgUrl) => {
+            const div = document.createElement("div");
+            div.className =
+              "aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition border-2 border-transparent hover:border-black";
+            div.onclick = function () {
+              changeImage(imgUrl);
+            }; // Klik ganti gambar utama
+            div.innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover">`;
+            thumbContainer.appendChild(div);
+          });
+        }
+      };
+
+      // ---------------------------------------------------------
+      // 3. FUNGSI PENDUKUNG
+      // ---------------------------------------------------------
+
+      // Ganti Gambar Utama
+      function changeImage(url) {
+        document.getElementById("main-image").src = url;
+      }
+
+      // Update Jumlah (Qty)
+      function updateQty(change) {
+        const qtyInput = document.getElementById("qty");
+        let currentQty = parseInt(qtyInput.value);
+        let newQty = currentQty + change;
+        if (newQty < 1) newQty = 1;
+        qtyInput.value = newQty;
+      }
+
+      // Toggle Sidebar Menu
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("overlay");
+      function toggleMenu() {
+        const isHidden = sidebar.classList.contains("-translate-x-full");
+        if (isHidden) {
+          sidebar.classList.remove("-translate-x-full");
+          overlay.classList.remove("hidden");
+          setTimeout(() => {
+            overlay.classList.remove("opacity-0");
+          }, 10);
+        } else {
+          sidebar.classList.add("-translate-x-full");
+          overlay.classList.add("opacity-0");
+          setTimeout(() => {
+            overlay.classList.add("hidden");
+          }, 300);
+        }
+      }
+    </script>
+  </body>
+</html>

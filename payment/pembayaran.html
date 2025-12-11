@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment - STMNPBDG.US</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      .bg-custom-green {
+        background-color: #263529;
+      }
+      .text-custom-gold {
+        color: #b6a176;
+      }
+      .bg-custom-gold {
+        background-color: #b6a176;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-50 m-0 p-0 min-h-screen flex flex-col font-sans text-gray-900"
+  >
+    <!-- HEADER SEDERHANA -->
+    <nav
+      class="fixed top-0 left-0 w-full z-50 bg-custom-green text-white px-4 py-4 md:px-8 flex justify-center items-center shadow-md h-16 md:h-20"
+    >
+      <a
+        href="../index.html"
+        class="text-sm md:text-lg font-bold tracking-widest uppercase flex items-center gap-2"
+      >
+        <i class="fas fa-leaf text-xs opacity-80"></i> STMNPBDG.US
+      </a>
+    </nav>
+
+    <!-- CONTENT -->
+    <main
+      class="w-full pt-28 pb-20 px-4 flex-grow flex flex-col items-center justify-center"
+    >
+      <div
+        class="bg-white w-full max-w-md rounded-2xl shadow-xl overflow-hidden"
+      >
+        <!-- Payment Header -->
+        <div class="bg-gray-100 p-6 text-center border-b border-gray-200">
+          <p class="text-sm text-gray-500 mb-1">Total Pembayaran</p>
+          <h1 class="text-3xl font-extrabold text-[#263529]">Rp 185.000</h1>
+          <div
+            class="mt-4 flex justify-center items-center gap-2 text-red-600 font-medium bg-red-50 py-1 px-3 rounded-full inline-block"
+          >
+            <i class="far fa-clock"></i> <span id="countdown">23:59:59</span>
+          </div>
+        </div>
+
+        <!-- Payment Body -->
+        <div class="p-8 flex flex-col items-center text-center">
+          <!-- CONTAINER QRIS -->
+          <div
+            id="qris-container"
+            class="hidden w-full flex flex-col items-center"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QRIS_logo.svg/1200px-QRIS_logo.svg.png"
+              alt="QRIS Logo"
+              class="h-8 mb-6"
+            />
+
+            <div
+              class="bg-white p-2 border-2 border-gray-200 rounded-xl shadow-inner mb-4"
+            >
+              <!-- API QR Code Dummy -->
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=Pembayaran%20Berhasil%20ke%20STMNPBDG"
+                alt="Scan QRIS"
+                class="w-64 h-64 object-contain"
+              />
+            </div>
+
+            <p class="text-sm text-gray-600 max-w-xs">
+              Scan QR di atas menggunakan aplikasi pembayaran apa saja (GoPay,
+              OVO, ShopeePay, Mobile Banking).
+            </p>
+          </div>
+
+          <!-- CONTAINER BANK TRANSFER -->
+          <div
+            id="bank-container"
+            class="hidden w-full flex flex-col items-center"
+          >
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600 text-2xl"
+            >
+              <i class="fas fa-university"></i>
+            </div>
+            <h2 class="text-xl font-bold mb-2">Transfer Bank BCA</h2>
+            <p class="text-sm text-gray-500 mb-6">
+              Silakan transfer ke nomor rekening Virtual Account berikut:
+            </p>
+
+            <div
+              class="bg-gray-100 w-full py-4 px-6 rounded-lg flex justify-between items-center mb-6"
+            >
+              <span
+                class="font-mono text-lg font-bold tracking-wider text-gray-800"
+                >8801 2345 6789</span
+              >
+              <button
+                onclick="copyText('880123456789')"
+                class="text-[#B6A176] hover:text-[#263529] font-bold text-sm"
+              >
+                SALIN
+              </button>
+            </div>
+
+            <ul
+              class="text-left text-sm text-gray-600 space-y-2 w-full pl-4 list-disc"
+            >
+              <li>Buka M-Banking BCA atau ATM.</li>
+              <li>
+                Pilih menu <b>m-Transfer</b> > <b>BCA Virtual Account</b>.
+              </li>
+              <li>Masukkan nomor VA di atas.</li>
+              <li>Pastikan nama penerima <b>STMNPBDG Store</b>.</li>
+            </ul>
+          </div>
+
+          <!-- CONTAINER E-WALLET -->
+          <div
+            id="ewallet-container"
+            class="hidden w-full flex flex-col items-center"
+          >
+            <div
+              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-600 text-2xl"
+            >
+              <i class="fas fa-wallet"></i>
+            </div>
+            <h2 class="text-xl font-bold mb-2">E-Wallet (GoPay/OVO/Dana)</h2>
+            <p class="text-sm text-gray-500 mb-6">
+              Kirim pembayaran ke nomor berikut:
+            </p>
+
+            <div
+              class="bg-gray-100 w-full py-4 px-6 rounded-lg flex justify-between items-center mb-6"
+            >
+              <span
+                class="font-mono text-lg font-bold tracking-wider text-gray-800"
+                >0812-3456-7890</span
+              >
+              <button
+                onclick="copyText('081234567890')"
+                class="text-[#B6A176] hover:text-[#263529] font-bold text-sm"
+              >
+                SALIN
+              </button>
+            </div>
+
+            <p class="text-xs text-gray-500">
+              *Setelah transfer, mohon konfirmasi bukti pembayaran ke WhatsApp
+              Admin.
+            </p>
+          </div>
+        </div>
+
+        <!-- Footer Card -->
+        <div class="bg-gray-50 p-4 border-t border-gray-200 text-center">
+          <a
+            href="../index.html"
+            class="text-sm font-bold text-gray-500 hover:text-black transition"
+          >
+            Batalkan & Kembali ke Home
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // 1. Ambil Parameter URL (?method=...)
+      const urlParams = new URLSearchParams(window.location.search);
+      const method = urlParams.get("method");
+
+      // 2. Tampilkan Container sesuai Metode
+      if (method === "QRIS") {
+        document.getElementById("qris-container").classList.remove("hidden");
+      } else if (method === "Bank") {
+        document.getElementById("bank-container").classList.remove("hidden");
+      } else if (method === "E-Wallet") {
+        document.getElementById("ewallet-container").classList.remove("hidden");
+      } else {
+        // Default jika tidak ada method (misal langsung buka file)
+        document.getElementById("qris-container").classList.remove("hidden");
+      }
+
+      // 3. Logic Timer Mundur (Fake)
+      function startTimer(duration, display) {
+        var timer = duration,
+          minutes,
+          seconds;
+        setInterval(function () {
+          minutes = parseInt(timer / 60, 10);
+          seconds = parseInt(timer % 60, 10);
+
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+
+          display.textContent = "00:" + minutes + ":" + seconds;
+
+          if (--timer < 0) {
+            timer = duration;
+          }
+        }, 1000);
+      }
+
+      window.onload = function () {
+        var twentyFourHours = 60 * 60 * 24;
+        var display = document.querySelector("#countdown");
+        startTimer(twentyFourHours, display);
+      };
+
+      // 4. Copy Text Function
+      function copyText(text) {
+        navigator.clipboard.writeText(text);
+        alert("Nomor berhasil disalin!");
+      }
+    </script>
+  </body>
+</html>

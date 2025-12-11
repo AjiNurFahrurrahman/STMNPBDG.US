@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Bag - STMNPBDG.US</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      .bg-custom-green {
+        background-color: #263529;
+      }
+      .text-custom-gold {
+        color: #b6a176;
+      }
+      .bg-custom-gold {
+        background-color: #b6a176;
+      }
+      .hover-line-menu {
+        position: relative;
+        display: inline-block;
+        padding: 0.5rem 0;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-white m-0 p-0 min-h-screen flex flex-col font-sans text-gray-900"
+  >
+    <!-- SIDEBAR MENU -->
+    <div
+      id="sidebar"
+      class="fixed inset-y-0 left-0 w-64 bg-white z-[60] transform -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl"
+    >
+      <div class="p-6">
+        <button
+          onclick="toggleMenu()"
+          class="bg-custom-green text-custom-gold w-10 h-10 rounded flex items-center justify-center mb-12 hover:opacity-90 transition shadow-sm"
+        >
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+        <ul
+          class="flex flex-col gap-6 text-black font-extrabold tracking-wide text-sm md:text-base"
+        >
+          <li>
+            <a href="../menu/shop.html" class="hover-line-menu group"
+              >SHOP<span
+                class="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+              ></span
+            ></a>
+          </li>
+          <li>
+            <a href="../menu/collection.html" class="hover-line-menu group"
+              >COLLECTION<span
+                class="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+              ></span
+            ></a>
+          </li>
+          <li>
+            <a href="../menu/lookbook.html" class="hover-line-menu group"
+              >LOOKBOOK<span
+                class="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+              ></span
+            ></a>
+          </li>
+          <li>
+            <a href="../menu/about_us.html" class="hover-line-menu group"
+              >ABOUT US<span
+                class="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+              ></span
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      id="overlay"
+      onclick="toggleMenu()"
+      class="fixed inset-0 bg-black/50 z-[55] hidden transition-opacity duration-300 opacity-0 backdrop-blur-sm"
+    ></div>
+
+    <!-- HEADER -->
+    <nav
+      class="fixed top-0 left-0 w-full z-50 bg-custom-green text-white px-4 py-3 md:px-8 flex justify-between items-center shadow-md h-14 md:h-20"
+    >
+      <button
+        onclick="toggleMenu()"
+        class="text-lg md:text-2xl opacity-80 hover:opacity-100 transition focus:outline-none"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <a
+        href="../index.html"
+        class="text-xs md:text-lg font-bold tracking-widest uppercase flex items-center gap-2 hover:opacity-80 transition cursor-pointer"
+        ><i class="fas fa-leaf text-[10px] md:text-xs opacity-80"></i>
+        STMNPBDG.US</a
+      >
+      <div class="flex gap-3 md:gap-6 items-center">
+        <!-- Icon Cart Aktif (Emas) -->
+        <button
+          class="text-base md:text-xl text-custom-gold hover:opacity-100 transition"
+        >
+          <i class="fas fa-shopping-cart"></i>
+        </button>
+        <a
+          href="/profile/login.html"
+          class="text-base md:text-xl opacity-80 hover:opacity-100 transition text-white"
+          ><i class="fas fa-user-circle"></i
+        ></a>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main
+      class="w-full pt-20 pb-10 px-3 md:px-12 flex-grow flex flex-col items-center"
+    >
+      <div class="max-w-[900px] w-full relative">
+        <!-- Judul Halaman & Tombol Kembali -->
+        <!-- PERUBAHAN: mb-6 diganti menjadi my-10 (margin atas dan bawah 2.5rem) -->
+        <div
+          class="relative my-10 text-center flex items-center justify-center"
+        >
+          <a
+            href="../menu/shop.html"
+            class="absolute left-0 text-xl md:text-2xl text-black hover:opacity-70 transition"
+          >
+            <i class="fas fa-arrow-left"></i>
+          </a>
+          <h1
+            class="text-lg md:text-3xl font-extrabold tracking-wide text-black"
+          >
+            Your Bag
+          </h1>
+        </div>
+
+        <!-- GRID UTAMA (TETAP 3 KOLOM DI SEMUA LAYAR) -->
+        <div class="grid grid-cols-3 gap-3 md:gap-8 items-start">
+          <!-- KOLOM KIRI: PRODUK (Mengambil 2 dari 3 bagian) -->
+          <div class="col-span-2">
+            <div class="flex gap-3 md:gap-6 items-start">
+              <!-- Gambar Produk -->
+              <div
+                class="w-20 md:w-40 aspect-square bg-gray-100 rounded-md overflow-hidden shadow-sm flex-shrink-0"
+              >
+                <img
+                  src="https://placehold.co/400x400/f3f3f3/333333?text=Product"
+                  alt="Product Image"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+
+              <!-- Detail Produk -->
+              <div class="flex flex-col gap-1 w-full">
+                <span
+                  class="bg-[#BFA37C] text-white text-[7px] md:text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wide w-fit"
+                  >Q3 - Casual</span
+                >
+
+                <h2
+                  class="text-[10px] md:text-base font-medium text-black leading-tight mt-1"
+                >
+                  STMNPBDG - Be Whatever You Want
+                </h2>
+
+                <div class="text-[8px] md:text-xs text-gray-600 space-y-0">
+                  <p>Warna : Putih</p>
+                  <p>Ukuran : L</p>
+                </div>
+
+                <p class="text-[10px] md:text-base font-bold text-black mt-0.5">
+                  Rp175.000
+                </p>
+
+                <!-- Qty Selector -->
+                <div
+                  class="flex items-center gap-1.5 mt-1 bg-gray-100 w-fit px-1.5 py-0.5 rounded border border-gray-200"
+                >
+                  <button
+                    onclick="updateQty(-1)"
+                    class="w-4 h-4 md:w-5 md:h-5 flex items-center justify-center bg-[#BFA37C] text-white rounded hover:opacity-80 transition font-bold text-[8px] md:text-xs"
+                  >
+                    -
+                  </button>
+                  <input
+                    id="qty"
+                    type="number"
+                    value="1"
+                    class="w-6 text-center border-none outline-none font-bold text-[10px] md:text-sm bg-transparent"
+                    readonly
+                  />
+                  <button
+                    onclick="updateQty(1)"
+                    class="w-4 h-4 md:w-5 md:h-5 flex items-center justify-center bg-[#BFA37C] text-white rounded hover:opacity-80 transition font-bold text-[8px] md:text-xs"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- KOLOM KANAN: RINGKASAN (Mengambil 1 dari 3 bagian) -->
+          <div class="col-span-1 w-full">
+            <div
+              class="bg-gray-50 p-2 md:p-4 rounded-md shadow-sm border border-gray-100"
+            >
+              <div
+                class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2"
+              >
+                <h3 class="font-bold text-[9px] md:text-xs">Ringkasan</h3>
+                <span class="text-[8px] md:text-[10px] font-bold text-gray-500"
+                  >1 Produk</span
+                >
+              </div>
+
+              <div class="space-y-1 text-[8px] md:text-xs text-gray-600 mb-1">
+                <div class="flex justify-between flex-wrap">
+                  <span>Total</span>
+                  <span>175.000</span>
+                </div>
+                <div class="flex justify-between flex-wrap">
+                  <span>Kirim</span>
+                  <span class="italic text-gray-400 text-[7px] md:text-[10px]"
+                    >-</span
+                  >
+                </div>
+                <div class="flex justify-between flex-wrap">
+                  <span>PPN</span>
+                  <span>15.000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOTAL & CHECKOUT -->
+        <div
+          class="mt-8 flex flex-col items-center justify-center gap-2 text-center"
+        >
+          <div>
+            <p class="text-[9px] md:text-xs text-gray-500">Estimated Total</p>
+            <h2 class="text-lg md:text-3xl font-extrabold text-black">
+              Rp175.000
+            </h2>
+          </div>
+
+          <!-- Tombol Checkout -->
+          <a
+            href="login.html"
+            class="bg-[#263529] text-white font-medium py-2 px-8 md:px-12 rounded-md text-xs md:text-base hover:opacity-90 transition shadow-lg tracking-wide w-full md:w-auto max-w-[200px]"
+          >
+            Checkout
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- SCRIPT -->
+    <script>
+      function updateQty(change) {
+        const qtyInput = document.getElementById("qty");
+        let currentQty = parseInt(qtyInput.value);
+        let newQty = currentQty + change;
+        if (newQty < 1) newQty = 1;
+        qtyInput.value = newQty;
+      }
+
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("overlay");
+      function toggleMenu() {
+        const isHidden = sidebar.classList.contains("-translate-x-full");
+        if (isHidden) {
+          sidebar.classList.remove("-translate-x-full");
+          overlay.classList.remove("hidden");
+          setTimeout(() => {
+            overlay.classList.remove("opacity-0");
+          }, 10);
+        } else {
+          sidebar.classList.add("-translate-x-full");
+          overlay.classList.add("opacity-0");
+          setTimeout(() => {
+            overlay.classList.add("hidden");
+          }, 300);
+        }
+      }
+    </script>
+  </body>
+</html>
