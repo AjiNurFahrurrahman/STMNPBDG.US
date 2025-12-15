@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+1",
+    "alt": "Casual Style White"
+  },
+  {
+    "id": 2,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+2",
+    "alt": "Streetwear Black"
+  },
+  {
+    "id": 3,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+3",
+    "alt": "Summer Vibes"
+  },
+  {
+    "id": 4,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+4",
+    "alt": "Winter Collection"
+  },
+  {
+    "id": 5,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+5",
+    "alt": "Formal Casual"
+  },
+  {
+    "id": 6,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+6",
+    "alt": "Sporty Look"
+  },
+  {
+    "id": 7,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+7",
+    "alt": "Daily Outfit"
+  },
+  {
+    "id": 8,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+8",
+    "alt": "Weekend Style"
+  },
+  {
+    "id": 9,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+9",
+    "alt": "Urban Fit"
+  },
+  {
+    "id": 10,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+10",
+    "alt": "Classic Tee"
+  },
+  {
+    "id": 11,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+11",
+    "alt": "Modern Hoodie"
+  },
+  {
+    "id": 12,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+12",
+    "alt": "Vintage Style"
+  },
+  {
+    "id": 13,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+13",
+    "alt": "Layering Idea"
+  },
+  {
+    "id": 14,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+14",
+    "alt": "Monochrome"
+  },
+  {
+    "id": 15,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+15",
+    "alt": "Pastel Color"
+  },
+  {
+    "id": 16,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+16",
+    "alt": "Bold Outfit"
+  },
+  {
+    "id": 17,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+17",
+    "alt": "City Walk"
+  },
+  {
+    "id": 18,
+    "image": "https://placehold.co/600x800/f3f3f3/333333?text=Look+18",
+    "alt": "Night Out"
+  }
+]
