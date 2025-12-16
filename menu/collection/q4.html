@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Q4 Summer - STMNPBDG.US</title>
+    <title>Q4 SUMMER - STMNPBDG.US</title>
 
     <!-- CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,16 +32,16 @@
         padding: 0.5rem 0;
       }
 
-      /* Custom Scrollbar */
+      /* --- MODIFIKASI: MENYEMBUNYIKAN SCROLLBAR --- */
+      /* Class ini digunakan pada container grid produk */
+      .custom-scrollbar {
+        -ms-overflow-style: none; /* IE dan Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      /* Menyembunyikan scrollbar untuk Chrome, Safari, dan Opera */
       .custom-scrollbar::-webkit-scrollbar {
-        width: 3px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background-color: #d1d5db;
-        border-radius: 4px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background-color: transparent;
+        display: none;
       }
     </style>
   </head>
@@ -151,7 +151,7 @@
           <h1
             class="text-2xl md:text-3xl font-extrabold tracking-wide text-black font-roboto uppercase"
           >
-            Q1 - RAYA SERIES
+            Q1 - SUMMER
           </h1>
         </div>
 
@@ -176,7 +176,8 @@
     >
       <div class="max-w-[1600px] mx-auto text-center">
         <div class="text-[10px] md:text-xs italic">
-          &copy; 2025 | stmnpbdg.us x dekavein.studios
+          &copy; 2025 | stmnpbdg.us x dekavein.studios x it.parmad — Crafted
+          with passion. All rights reserved.
         </div>
       </div>
     </footer>

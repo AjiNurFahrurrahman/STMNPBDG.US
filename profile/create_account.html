@@ -51,18 +51,26 @@
         box-shadow: 0 0 0 1px #263529;
       }
 
-      /* Custom Scrollbar untuk form jika layar kecil */
-      .custom-scrollbar::-webkit-scrollbar {
-        width: 3px;
+      /* --- MODIFIKASI: MENYEMBUNYIKAN SCROLLBAR HALAMAN --- */
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
       }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background-color: #d1d5db;
-        border-radius: 4px;
+
+      html,
+      body {
+        -ms-overflow-style: none; /* IE dan Edge */
+        scrollbar-width: none; /* Firefox */
       }
     </style>
   </head>
+  <!-- 
+    PERUBAHAN BODY:
+    - Hapus: h-screen overflow-hidden
+    - Tambah: min-h-screen (agar footer turun ke bawah)
+  -->
   <body
-    class="bg-white m-0 p-0 h-screen overflow-hidden flex flex-col font-sans text-gray-900"
+    class="bg-white m-0 p-0 min-h-screen flex flex-col font-sans text-gray-900"
   >
     <!-- SIDEBAR -->
     <div
@@ -116,9 +124,9 @@
       class="fixed inset-0 bg-black/50 z-[55] hidden transition-opacity duration-300 opacity-0 backdrop-blur-sm"
     ></div>
 
-    <!-- HEADER -->
+    <!-- HEADER (Fixed) -->
     <nav
-      class="w-full z-50 bg-custom-green text-white px-4 py-4 md:px-8 flex justify-between items-center shadow-md flex-none h-16 md:h-20"
+      class="fixed top-0 left-0 w-full z-50 bg-custom-green text-white px-4 py-4 md:px-8 flex justify-between items-center shadow-md h-16 md:h-20"
     >
       <button
         onclick="toggleMenu()"
@@ -147,13 +155,16 @@
     </nav>
 
     <!-- MAIN CONTENT -->
+    <!-- 
+      PERUBAHAN MAIN:
+      - pt-28: Memberi ruang untuk header fixed
+      - pb-12: Memberi ruang di bawah
+      - Hapus wrapper scrollable internal
+    -->
     <main
-      class="w-full px-6 md:px-16 flex-grow flex flex-col justify-center items-center h-full overflow-hidden"
+      class="w-full pt-28 pb-12 px-6 md:px-16 flex-grow flex flex-col items-center justify-center"
     >
-      <!-- Wrapper Scrollable (Jika konten terlalu panjang di layar kecil) -->
-      <div
-        class="w-full max-w-[1000px] max-h-[85vh] overflow-y-auto custom-scrollbar pt-24 pb-10"
-      >
+      <div class="w-full max-w-[1000px]">
         <div class="relative mb-10 text-center">
           <!-- Tombol Kembali ke Login -->
           <a
@@ -258,11 +269,13 @@
             />
             <label for="terms" class="text-xs md:text-sm text-gray-600">
               Saya menyetujui
-              <a href="#" class="underline hover:text-black"
+              <a href="../Policy/terms.html" class="underline hover:text-black"
                 >Syarat & Ketentuan</a
               >
               serta
-              <a href="#" class="underline hover:text-black"
+              <a
+                href="../Policy/kebijakan.html"
+                class="underline hover:text-black"
                 >Kebijakan Privasi</a
               >.
             </label>
@@ -280,6 +293,16 @@
         </form>
       </div>
     </main>
+
+    <!-- FOOTER (mt-auto agar turun ke bawah) -->
+    <footer
+      class="bg-custom-green text-custom-gold py-3 px-6 md:px-12 flex-none w-full text-center mt-auto"
+    >
+      <div class="text-[10px] md:text-xs italic">
+        &copy; 2025 | stmnpbdg.us x dekavein.studios x it.parmad — Crafted with
+        passion. All rights reserved.
+      </div>
+    </footer>
 
     <script src="../js/main.js"></script>
     <script>

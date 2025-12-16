@@ -21,6 +21,22 @@
     />
 
     <style>
+      /* --- LOGIKA HILANGKAN SCROLLBAR --- */
+
+      /* Menyembunyikan scrollbar untuk Chrome, Safari, dan Opera */
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Menyembunyikan scrollbar untuk IE, Edge, dan Firefox */
+      html,
+      body {
+        -ms-overflow-style: none; /* IE dan Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      /* --- STYLE LAINNYA --- */
       body {
         font-family: "Inter", sans-serif;
         scroll-behavior: smooth;
@@ -432,8 +448,8 @@
 
         <!-- Copyright warna #B6A176 -->
         <div class="text-center text-xs text-custom-gold italic">
-          &copy; 2025 | stmnpbdg.us x dekavein.studios — Crafted with passion.
-          All rights reserved.
+          &copy; 2025 | stmnpbdg.us x dekavein.studios x it.parmad — Crafted
+          with passion. All rights reserved.
         </div>
       </div>
     </footer>

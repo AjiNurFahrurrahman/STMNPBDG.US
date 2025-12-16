@@ -23,6 +23,7 @@
     <style>
       body {
         font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
       }
       .bg-custom-green {
         background-color: #263529;
@@ -39,21 +40,27 @@
         font-family: "Roboto", sans-serif;
       }
 
-      /* Custom Scrollbar Tipis */
-      .custom-scrollbar::-webkit-scrollbar {
-        width: 3px;
+      /* --- TEKNIK HILANGKAN SCROLLBAR TOTAL (GLOBAL) --- */
+
+      /* Menyembunyikan scrollbar di seluruh elemen untuk Chrome, Safari, Opera */
+      ::-webkit-scrollbar {
+        display: none;
       }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background-color: #d1d5db;
-        border-radius: 4px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background-color: transparent;
+
+      /* Menyembunyikan scrollbar di seluruh elemen untuk IE, Edge, Firefox */
+      * {
+        -ms-overflow-style: none; /* IE dan Edge */
+        scrollbar-width: none; /* Firefox */
       }
     </style>
   </head>
+  <!-- 
+    PERUBAHAN DI BODY: 
+    - min-h-screen: Agar footer turun ke bawah jika konten banyak.
+    - overflow-x-hidden: Mencegah scroll menyamping.
+  -->
   <body
-    class="bg-white m-0 p-0 h-screen overflow-hidden flex flex-col font-sans text-gray-900"
+    class="bg-white m-0 p-0 min-h-screen flex flex-col font-sans text-gray-900 overflow-x-hidden"
   >
     <!-- ===================== SIDEBAR MENU ===================== -->
     <div
@@ -139,33 +146,39 @@
     </nav>
 
     <!-- ===================== MAIN CONTENT ===================== -->
-    <main
-      class="w-full pt-24 pb-8 px-4 flex-grow flex flex-col items-center overflow-hidden"
-    >
-      <div class="max-w-[1400px] w-full h-full flex flex-col">
+    <main class="w-full pt-28 pb-16 px-4 flex-grow flex flex-col items-center">
+      <div class="max-w-[1400px] w-full">
         <!-- Judul Halaman -->
-        <div class="text-center mb-6 flex-none">
+        <div class="text-center mb-12">
           <h1
-            class="text-2xl md:text-3xl font-extrabold tracking-widest uppercase text-black font-roboto"
+            class="text-3xl md:text-4xl font-extrabold tracking-widest uppercase text-black font-roboto inline-block relative group"
           >
             LOOKBOOK
           </h1>
         </div>
 
-        <!-- Scrollable Grid Container -->
-        <div class="flex-grow overflow-y-auto custom-scrollbar pb-10 pr-2">
-          <!-- GRID 4 KOLOM -->
-          <div id="lookbook-grid" class="grid grid-cols-4 gap-3 md:gap-6">
-            <!-- Loading State -->
-            <div class="col-span-full flex justify-center py-20">
-              <p class="text-gray-500 animate-pulse text-xs">
-                Memuat galeri...
-              </p>
-            </div>
+        <!-- GRID 4 KOLOM -->
+        <div
+          id="lookbook-grid"
+          class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6"
+        >
+          <!-- Loading State -->
+          <div class="col-span-full flex justify-center py-20">
+            <p class="text-gray-500 animate-pulse text-xs">Memuat galeri...</p>
           </div>
         </div>
       </div>
     </main>
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-custom-green text-custom-gold py-6 px-6 w-full text-center mt-auto"
+    >
+      <div class="text-[10px] md:text-xs italic">
+        &copy; 2025 | stmnpbdg.us x dekavein.studios x it.parmad — Crafted with
+        passion. All rights reserved.
+      </div>
+    </footer>
 
     <!-- ===================== SCRIPT JS ===================== -->
     <script src="../js/main.js"></script>
@@ -173,7 +186,7 @@
     <script>
       // FUNGSI LOAD LOOKBOOK
       function loadLookbook() {
-        // Data Lookbook (Langsung di-embed untuk menghindari error fetch lokal)
+        // Data Lookbook
         const looks = [
           {
             id: 1,
@@ -274,10 +287,8 @@
         looks.forEach((item) => {
           grid.innerHTML += `
                     <div class="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group cursor-pointer relative">
-                        
                         <!-- Gambar: Hanya Zoom effect saat disentuh -->
                         <img src="${item.image}" alt="${item.alt}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out">
-                        
                     </div>
                 `;
         });

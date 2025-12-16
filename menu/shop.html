@@ -32,6 +32,18 @@
       .border-custom-gold {
         border-color: #b6a176;
       }
+
+      /* --- MODIFIKASI: MENYEMBUNYIKAN SCROLLBAR HALAMAN --- */
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      html,
+      body {
+        -ms-overflow-style: none; /* IE dan Edge */
+        scrollbar-width: none; /* Firefox */
+      }
     </style>
   </head>
   <body
@@ -148,42 +160,12 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-custom-green text-custom-gold py-6 md:py-8 mt-auto">
-      <div class="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 mb-6">
-          <div>
-            <h3 class="text-xl font-bold mb-2">About Us</h3>
-            <p class="text-custom-gold text-sm leading-relaxed max-w-md">
-              STMNPBDG.US adalah destinasi merchandise premium dengan desain
-              eksklusif yang mencerminkan gaya hidup modern dan berani.
-            </p>
-          </div>
-          <div class="md:text-right mt-4 md:mt-0">
-            <h3 class="text-xl font-bold mb-2">Connect With Us</h3>
-            <p class="text-custom-gold text-sm mb-4">
-              Follow our journey and updates.
-            </p>
-            <div class="flex gap-4 md:justify-end">
-              <a
-                href="#"
-                class="w-8 h-8 border border-custom-gold rounded-lg flex items-center justify-center text-custom-gold hover:bg-white/10 transition"
-                ><i class="fab fa-instagram"></i></a
-              ><a
-                href="#"
-                class="w-8 h-8 border border-custom-gold rounded-lg flex items-center justify-center text-custom-gold hover:bg-white/10 transition"
-                ><i class="fab fa-tiktok"></i></a
-              ><a
-                href="#"
-                class="w-8 h-8 border border-custom-gold rounded-lg flex items-center justify-center text-custom-gold hover:bg-white/10 transition"
-                ><i class="fab fa-youtube"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-        <hr class="border-custom-gold mb-4 opacity-100" />
-        <div class="text-center text-xs text-custom-gold italic">
-          &copy; 2025 | stmnpbdg.us x dekavein.studios — All rights reserved.
-        </div>
+    <footer
+      class="bg-custom-green text-custom-gold py-3 px-6 flex-none z-10 w-full text-center"
+    >
+      <div class="text-[10px] md:text-xs italic">
+        &copy; 2025 | stmnpbdg.us x dekavein.studios x it.parmad — Crafted with
+        passion. All rights reserved.
       </div>
     </footer>
 
